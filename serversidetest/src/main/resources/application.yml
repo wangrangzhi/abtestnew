@@ -1,0 +1,25 @@
+debug: true
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:20001/eureka/
+    instance:
+        metadataMap:
+             instanceId: ${spring.application.name}:${random.value}
+        preferIpAddress: true
+feign:
+    httpclient:
+        connection-timeout: 3000000
+        time-to-live: 3000000
+        time-to-live-unit: SECONDS
+hystrix:
+    command:
+        default:
+            execution:
+                timeout:
+                    enabled: false
+server:
+    port: 0
+spring:
+    application:
+        name: serversidetest
